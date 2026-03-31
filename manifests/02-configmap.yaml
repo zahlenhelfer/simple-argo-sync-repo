@@ -1,0 +1,8 @@
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: my-argo-example-db-configmap
+data:
+  # Configuration values can be set as key-value properties
+  database: OSLO
+  database_uri: mongodb://stage.rz.local:27017
