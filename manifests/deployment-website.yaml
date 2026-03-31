@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: website
       test: service
-  replicas: 3
+  replicas: 5
   template:
     metadata:
       labels:
