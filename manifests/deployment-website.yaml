@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-deployment-via-argo
+  labels:
+    app: website
+spec:
+  selector:
+    matchLabels:
+      app: website
+      test: service
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: website
+        test: service
+        env: production
+    spec:
+      containers:
+        - name: kuard
+          image: ghcr.io/zahlenhelfer/kuard:1
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "100m" # Request 0.1 CPU
+              memory: "128Mi" # Request 128 MB memory
+            limits:
+              cpu: "500m" # Limit to 0.5 CPU
+              memory: "512Mi" # Limit to 512 MB memory
