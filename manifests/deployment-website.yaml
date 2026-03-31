@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: website-deployment-via-argo
+  namespace: my-argo-project-app
   labels:
     app: website
 spec:
